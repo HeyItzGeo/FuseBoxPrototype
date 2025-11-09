@@ -1,0 +1,143 @@
+UseBlockDatabase: true
+CheckBlockDatabaseAtStartup: false
+BlockDurability: 100
+EnableMetrics: true
+
+Checktool:
+  AlwaysEnabled: false
+  EnabledByDefault: false
+  PreventActionWhenCheckingHandledBlocks: true
+  PreventActionWhenCheckingNonHandledBlocks: true
+  SilentWhenCheckingOnDisabledWorlds: false
+  SilentWhenCheckingWithoutPermissions: false
+  SilentWhenCheckingNonHandledBlocks: false
+  SilentWhenCheckingHandledBlocks: false
+  ShowBossBar: false
+  BossBarColor: "PURPLE"
+  BossBarStyle: "SOLID"
+  BossBarDuration: "1500ms"
+
+
+VanillaEntity:
+  ENDER_CRYSTAL:
+    Materials:
+      STONE:
+        Damage: 2.5
+        DropChance: 2.5
+        DropMaterial: 2.5
+        DistanceAttenuationFactor: 0.2
+        UnderwaterDamageFactor: 0.2
+        FancyUnderwaterDetection: false
+        Sound:
+          OnExplode:
+            Sound:
+              Name: weather.rain.above
+              Volume: 0.2
+              Pitch: 0.5
+      Particles:
+        OnHit:
+          Name: GUST_EMITTER_LARGE
+          Material: minecraft:ROOTED_DIRT
+          Amount: 2
+          Size: 2.5
+          Speed: 2.5
+          DeltaX: 2.5
+          DeltaY: 2.5
+          DeltaZ: 2.5
+          Red: 2
+          Green: 2
+          Blue: 2
+        OnBreak:
+          Name: ASH
+          Material: minecraft:ANDESITE
+          Amount: 1
+          Size: 2.5
+          Speed: 2.5
+          DeltaX: 2.5
+          DeltaY: 2.5
+          DeltaZ: 2.5
+          Red: 2
+          Green: 2
+          Blue: 2
+    Properties:
+      ExplosionRadius: 2.5
+      ExplosionFactor: 2.5
+      UnderwaterExplosionFactor: 2.5
+      SnapToBlockGridOnPriming: true
+      DisableExplosionChaining: true
+      MinimumTravelDistanceToDamageBlocksUnderwater: 2.5
+      ReplaceOriginalExplosion: true
+      PackDroppedItems: true
+      ExplosionDamageBlocksUnderwater: true
+      ReplaceOriginalExplosionWhenUnderwater: true
+      Sound:
+        OnExplode:
+          Sound:
+            Name: weather.rain.above
+            Volume: 0.2
+            Pitch: 0.5
+      ExplosionRemoveWaterloggedStateFromNearbyBlocks: true
+      ExplosionRemoveWaterloggedStateFromNearbyBlocksOnSurface: true
+      ExplosionRemoveWaterloggedStateFromNearbyBlocksUnderwater: true
+      ExplosionRemoveNearbyWaterloggedBlocks: true
+      ExplosionRemoveNearbyWaterloggedBlocksOnSurface: true
+      ExplosionRemoveNearbyWaterloggedBlocksUnderwater: true
+      ExplosionRemoveNearbyLiquids: true
+      ExplosionRemoveNearbyLiquidsOnSurface: true
+      ExplosionRemoveNearbyLiquidsUnderwater: true
+      Particles:
+        OnHit:
+          Name: GUST_EMITTER_LARGE
+          Material: minecraft:ROOTED_DIRT
+          Amount: 2
+          Size: 2.5
+          Speed: 2.5
+          DeltaX: 2.5
+          DeltaY: 2.5
+          DeltaZ: 2.5
+          Red: 2
+          Green: 2
+          Blue: 2
+        OnBreak:
+          Name: ASH
+          Material: minecraft:COAL_ORE
+          Amount: 1
+          Size: 2.5
+          Speed: 2.5
+          DeltaX: 2.5
+          DeltaY: 2.5
+          DeltaZ: 2.5
+          Red: 2
+          Green: 2
+          Blue: 2
+
+
+
+# Locale Settings
+Locale:
+  NotAllowed: "You are not allowed to perform this action!"
+  Usage: "Usage: %DESCRIPTION%"
+  OnlyPlayerAllowed: "Only players can perform this action!"
+  PlayerDoesntExist: "Player %NAME% doesn't exist in the server!"
+  PlayerIsOffline: "Player %NAME% must be online to perform that"
+  EnterChecktoolMode: "You can now right-click a block with %PRETTY_ITEM% to display block durability"
+  LeaveChecktoolMode: "You can no longer check for a block durability"
+  ChecktoolToggledOn: "Checktool mode toggled on for player %NAME%"
+  ChecktoolToggledOff: "Checktool mode toggled off for player %NAME%"
+  ChecktoolUse: "Block health: %DURABILITY_PERCENTAGE%% (%PRETTY_MATERIAL%)"
+  ChecktoolUseBossBar: "%PRETTY_MATERIAL%: %DURABILITY_PERCENTAGE%%"
+  ChecktoolSet: "Checktool successfully set to %PRETTY_ITEM%!"
+  ChecktoolNotPersisted: "Checktool item was set to %PRETTY_ITEM%, but it couldn't be persisted"
+  ChecktoolGiven: "A checktool (%PRETTY_ITEM%) was given to player %NAME%"
+  ChecktoolReset: "Checktool successfully reset to bare hand (Air)"
+  ChecktoolNotHandled: "%PRETTY_MATERIAL% is not handled by the current configuration"
+  ChecktoolInfo: "Current checktool item: %PRETTY_ITEM%"
+  ChecktoolAlwaysEnabled: "Checktool can't be toggled off because it's always enabled"
+  DisabledInThisWorld: "This functionality is disabled in this world"
+  Reloaded: "Reloaded successfully!"
+  DebugEnabled: "Debug mode has been enabled"
+  DebugDisabled: "Debug mode has been disabled"
+
+LocalePrefix: "[ExplodeAny] "
+
+

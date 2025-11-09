@@ -1,0 +1,290 @@
+/* Prevent scrollbar layout shift */
+body.modal-open {
+    padding-right: var(--scrollbar-width, 0px);
+    overflow-y: hidden;
+}
+
+/* Item Selector Modal */
+.item-selector-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.item-selector-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.item-selector-content {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background: #0c1120; /* Darker blue background */
+    border: 1px solid #2a2f3b; /* Subtle border for better definition */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1.4);
+}
+
+.item-selector-modal.active .item-selector-content {
+    transform: scale(1);
+}
+
+.item-selector-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0c1120; /* Darker blue background */
+}
+
+.item-selector-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e1e6f0;
+}
+
+.item-selector-close {
+    font-size: 24px;
+    cursor: pointer;
+    color: #8a94a8;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.item-selector-close:hover {
+    color: #e1e6f0;
+}
+
+.item-selector-search {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.item-search-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #2a2f3b;
+    border-radius: 4px;
+    background: #0c1120; /* Darker blue background */
+    color: #e1e6f0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.item-search-input:focus {
+    outline: none;
+    border-color: #1a4b8c; /* Darker blue focus border */
+    box-shadow: 0 0 0 2px rgba(26, 75, 140, 0.3);
+}
+
+/* Category styles */
+.category-container {
+    margin-bottom: 12px;
+    border-radius: 6px;
+    overflow: visible;
+    border: 1px solid var(--border);
+    background-color: #0a192f; /* Deep blue background */
+    position: relative;
+}
+
+.category-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 10px 16px;
+    background: #0e1a35; /* Darker blue for headers */
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #2a2f3b;
+    cursor: default;
+    user-select: none;
+}
+
+.category-items {
+    background-color: #0a192f; /* Deep blue background */
+
+    overflow-y: auto;
+}
+
+/* Ensure proper spacing for items within categories */
+.category-items .item-option {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    transition: background-color 0.2s ease;
+}
+
+.category-items .item-option:first-child {
+    border-top: none;
+}
+
+/* Hover effect for items within categories */
+.category-items .item-option:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Selected state for items within categories */
+.category-items .item-option.selected {
+    background-color: rgba(0, 150, 136, 0.1);
+    border-left: 2px solid #009688;
+    padding-left: 8px;
+    margin-left: 2px;
+}
+
+/* Scrollbar styling for category items */
+.category-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.category-items::-webkit-scrollbar-track {
+    background: #0c1120; /* Darker blue background */
+}
+
+.category-items::-webkit-scrollbar-thumb {
+    background-color: #2a2f3b;
+    border-radius: 3px;
+}
+
+.category-items::-webkit-scrollbar-thumb:hover {
+    background-color: #3a3f4b;
+}
+
+.item-selector-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    background: #0c1120; /* Darker blue background */
+    padding: 0;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 #2d3748;
+}
+
+.item-selector-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.item-selector-list::-webkit-scrollbar-track {
+    background: #0c1a33; /* Darker blue for scrollbar track */
+    border-radius: 3px;
+}
+
+.item-selector-list::-webkit-scrollbar-thumb {
+    background-color: #1a4b8c; /* Darker blue for scrollbar thumb */
+    border-radius: 3px;
+}
+
+.item-option {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #e1e6f0;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--border);
+}
+
+.item-option {
+    transition: background-color 0.2s ease;
+}
+
+.item-option:hover {
+    background-color: rgba(26, 75, 140, 0.2); /* Darker blue hover */
+}
+
+.item-option.selected {
+    background-color: rgba(0, 150, 136, 0.1);
+    position: relative;
+    border-left: 2px solid #009688;
+    padding-left: 8px;
+    margin-left: 2px;
+}
+
+.item-option.selected::after {
+    content: '✓';
+    position: absolute;
+    right: 10px;
+    color: #009688;
+    font-size: 0.9em;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Multi-select buttons */
+.item-select-all,
+.item-deselect-all {
+    padding: 8px 12px;
+    background: #0c1a33; /* Darker blue for scrollbar track */
+    color: #e1e6f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.item-select-all:hover,
+.item-deselect-all:hover {
+    background: #142a4e; /* Darker blue for button hover */
+}
+
+.item-custom-submit {
+    margin-left: auto;
+}
+
+.item-selector-actions {
+    padding: 15px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    background: #0c1120; /* Darker blue background */
+}
+
+.item-custom-submit {
+    padding: 8px 20px;
+    background: #1a4b8c; /* Darker blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.item-custom-submit:hover {
+    background: var(--primary-dark);
+}
